@@ -3,6 +3,7 @@ module Bootsy
     def bootsy_area object, method, options = {}
 
       foreign_container = options.delete :container
+      add_modal_and_gallery_id = options[:add_modal] ? options.delete(:add_modal) : true
       enable_uploader = true
 
       unless foreign_container.kind_of?(Container) || (foreign_container.nil? && object.kind_of?(Container))
@@ -29,12 +30,12 @@ module Bootsy
 
       output = raw ''
       
-      output = self.render 'bootsy/images/modal', {container: foreign_container || object} if enable_uploader
+      output = self.render 'bootsy/images/modal', {container: foreign_container || object} if enable_uploader and add_modal_and_gallery_id
 
       options[:class] = (options[:class].nil? ? [] : (options[:class].kind_of?(Array) ? options[:class] : [options[:class]])) + [:bootsy_text_area]
       output += self.text_area object_name, method, options
 
-      if enable_uploader
+      if enable_uploader and add_modal_and_gallery_id
         if foreign_container.nil? || (foreign_container == object)
           output += self.hidden_field object_name, :bootsy_image_gallery_id, :class => 'bootsy_image_gallery_id'
         end
