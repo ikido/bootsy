@@ -34,6 +34,7 @@ window.Bootsy = (function(){
 
   Bootsy.openImageGallery = function(editor){
     $('#bootsy_image_gallery').modal('show');
+		Bootsy.editor = editor
   };
 
   Bootsy.insertImage = function(image, editor){
@@ -117,7 +118,9 @@ window.Bootsy = (function(){
       if($('textarea.bootsy_text_area').attr('data-enable-link') == 'false') Bootsy.editorOptions.link = false;
       if($('textarea.bootsy_text_area').attr('data-enable-color') == 'false') Bootsy.editorOptions.color = false;
 
-      Bootsy.editor = $('textarea.bootsy_text_area').wysihtml5(Bootsy.editorOptions).data("wysihtml5").editor;
+      if (!Bootsy.hasOwnProperty('editor')) { 
+				Bootsy.editor = $('textarea.bootsy_text_area').wysihtml5(Bootsy.editorOptions).data("wysihtml5").editor;
+			}
 
       // In order to properly work with Twitter Bootstrap 2.1
       $('body').off('click.dropdown touchstart.dropdown.data-api', '.dropdown');
