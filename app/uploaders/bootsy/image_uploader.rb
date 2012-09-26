@@ -7,7 +7,7 @@ module Bootsy
     include Sprockets::Helpers::RailsHelper
     include Sprockets::Helpers::IsolatedHelper
 
-    storage :file
+    storage Bootsy.storage
 
 
     def store_dir

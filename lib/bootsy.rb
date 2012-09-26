@@ -36,6 +36,10 @@ module Bootsy
   # Store directory (inside of 'public')
   mattr_accessor :store_dir
   @@store_dir = 'uploads'
+  
+  # Storage for images
+  mattr_accessor :storage
+  @@storage = :file
 
 
   ## SETUP
