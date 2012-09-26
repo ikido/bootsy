@@ -3,7 +3,7 @@ module Bootsy
     def bootsy_area object, method, options = {}
 
       foreign_container = options.delete :container
-      add_modal_and_gallery_id = options[:add_modal] ? options.delete(:add_modal) : true
+      add_modal_and_gallery_id = options.include?(:add_modal) ? options.delete(:add_modal) : true
       enable_uploader = true
 
       unless foreign_container.kind_of?(Container) || (foreign_container.nil? && object.kind_of?(Container))
