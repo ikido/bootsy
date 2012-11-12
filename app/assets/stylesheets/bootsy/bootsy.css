@@ -76,6 +76,6 @@ form.bootsy .field_with_errors {
   display: inline-block; 
 }
 
-ul.thumbnails {
+#bootsy_image_gallery ul.thumbnails {
   width: 460px;
 }
