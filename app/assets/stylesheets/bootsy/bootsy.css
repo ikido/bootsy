@@ -75,3 +75,7 @@
 form.bootsy .field_with_errors { 
   display: inline-block; 
 }
+
+ul.thumbnails {
+  width: 460px;
+}
