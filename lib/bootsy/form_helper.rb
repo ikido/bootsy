@@ -34,7 +34,7 @@ module Bootsy
 
       options[:class] = (options[:class].nil? ? [] : (options[:class].kind_of?(Array) ? options[:class] : [options[:class]])) + [:bootsy_text_area]
       # output += self.text_area object_name, method, options
-      output += self.text_area_tag "#{object_name}_#{method}", object.send(method), options
+      output += self.text_area_tag "#{object_name}[#{method}]", object.send(method), options
       # Rails.logger.info "------------- #{object_name}_#{method}"
       # Rails.logger.info "------------- #{object.send(method)}"
 
